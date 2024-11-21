@@ -1,7 +1,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-div#loom-companion-mv3 section#shadow-host-companion div#inner-shadow-companion .hidden-component {
-    display: block;
-  }
