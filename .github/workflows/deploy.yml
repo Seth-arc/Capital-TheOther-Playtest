@@ -3,7 +3,7 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main
+      - main  # or your default branch
 
 permissions:
   contents: write
@@ -15,37 +15,20 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
         with:
           node-version: '20'
-          cache: 'npm'
 
       - name: Install Dependencies
-        run: |
-          npm clean-install
-          npm install -g vite
+        run: npm ci
 
       - name: Build
-        run: |
-          npm run build
-        env:
-          NODE_ENV: production
-
-      - name: Create gh-pages Branch
-        run: |
-          git checkout --orphan gh-pages
-          git reset --hard
-          git commit --allow-empty -m "Create gh-pages branch"
-          git push origin gh-pages
-        continue-on-error: true
+        run: npm run build
 
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-          folder: dist
+          folder: dist    # The folder the action should deploy
           branch: gh-pages
-          clean: true
-
-
-          
+          clean: true    # Automatically remove deleted files
