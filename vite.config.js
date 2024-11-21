@@ -10,7 +10,7 @@ export default defineConfig({
     outDir: 'dist',
     rollupOptions: {
       input: {
-        'main': './index.html',
+        'main': 'index.html',
         'formatPreferences': 'html/format-preferences.html',
         'componentEffectiveness': 'html/component-effectiveness.html',
         'componentClarity': 'html/component-clarity.html',
