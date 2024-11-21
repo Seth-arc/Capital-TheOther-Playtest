@@ -1,1 +1,0 @@
-import{v as a,B as i,y as s}from"./generateCategoricalChart-B6-Dvcm1.js";import{X as t,Y as r}from"./YAxis-CPDIFA4-.js";var p=a({chartName:"BarChart",GraphicalChild:i,defaultTooltipEventType:"axis",validateTooltipEventTypes:["axis","item"],axisComponents:[{axisType:"xAxis",AxisComp:t},{axisType:"yAxis",AxisComp:r}],formatAxisMap:s});export{p as B};
