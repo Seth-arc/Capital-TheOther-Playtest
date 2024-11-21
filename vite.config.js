@@ -3,6 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
+  base: '/Capital-TheOther-Playtest/', // Add this line for GitHub Pages
   build: {
     rollupOptions: {
       input: {
@@ -42,29 +43,8 @@ export default defineConfig({
         mechanicsEffectiveness: './html/mechanics-effectiveness.html',
         playerDecisionPatterns: './html/player-decision-patterns.html',
         capitalSystemAnalysis: './html/capital-system-analysis.html'
-      },
-      output: {
-        // Ensure unique chunk names
-        manualChunks: {
-          react: ['react', 'react-dom'],
-          recharts: ['recharts']
-        }
       }
-    },
-    // Enable source maps for debugging
-    sourcemap: true,
-    // Optimize output
-    minify: 'terser',
-    terserOptions: {
-      compress: {
-        drop_console: true,
-        drop_debugger: true
-      }
-    },
-    // Output directory configuration
-    outDir: 'dist',
-    assetsDir: 'assets',
-    emptyOutDir: true
+    }
   },
   // Ensure proper path resolution for modules
   resolve: {
@@ -76,24 +56,5 @@ export default defineConfig({
   server: {
     port: 3000,
     open: true,
-    cors: true,
-  },
-  // Optimize dependency handling
-  optimizeDeps: {
-    include: [
-      'react', 
-      'react-dom', 
-      'recharts',
-      'lodash'
-    ]
-  },
-  // CSS handling
-  css: {
-    postcss: {
-      plugins: [
-        require('tailwindcss'),
-        require('autoprefixer'),
-      ],
-    },
   }
 });
